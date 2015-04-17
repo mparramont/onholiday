@@ -3,7 +3,7 @@ ruby '2.2.1'
 
 # Standard Rails gems
 gem 'rails', '4.2.0'
-gem 'sass-rails', '5.0.1'
+gem 'sass-rails', '~> 4.0'
 gem 'uglifier', '2.7.1'
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.3'
