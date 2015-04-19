@@ -14,7 +14,7 @@ class StatisticsController < ApplicationController
     @chart = Gchart.pie(:size => '400x300',
                 :title_color => 'FF0000',
                 :bg => 'FFFFFF',
-                :legend => ['Worked', 'Vacation'],
+                :legend => ['Worked days', 'Vacation days'],
                 :data => [days_worked, days_off],
                 :bar_colors => ['0000FF', '00FF00'])
   end
