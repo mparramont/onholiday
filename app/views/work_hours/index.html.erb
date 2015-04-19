@@ -40,9 +40,10 @@
   });
 
   $("#change_week").click(function(){
+    var user = <%= @timetable_user.id %>;
     var date = $("#change_week_selection").val();
     if(date){
-      window.location.href = "/timetable?date=" + date;
+      window.location.href = "/timetable?user_id=" +  user + "&date=" + date;
     }else{
       alert("Please specify a Date");
     }
@@ -50,7 +51,7 @@
 
   <% if current_user.admin? %>
     $('.hour-block').click(function(){
-        var user = <%= current_user.id %>;
+        var user = <%= @timetable_user.id %>;
         var day = $(this).data('day');
         var hour = $(this).data('hour');
 
