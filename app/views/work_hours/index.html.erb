@@ -1,0 +1,64 @@
+<h4>Timetable for <%= @day.beginning_of_week %> till <%= @day.end_of_week %></h4>
+
+<%= render "form" %>
+
+
+<% i = 0 %>
+
+<% while i != 6 %>
+
+  <div class="col-md-2">
+
+
+    <h5><%= @day %></h5>
+
+    <% time = Time.new(2015,3,3,6,0,0) %>
+
+    <% while time.hour != 21  %>
+
+        <div class="col-md-12 hour-block" data-hour="<%= time.hour %>" data-day="<%= @day.strftime('%F') %>">
+          <%= time.to_formatted_s(:time)  %>
+        </div>
+
+      <% time = time + 1.hour %>
+    <% end %>
+
+  </div>
+  <% @day = @day + 1.day %>
+  <% i= i +1 %>
+<% end %>
+
+<script>
+  $.each(<%= raw @work_hours %>, function(i,v){
+    $('div[data-day="' + v.day + '"][data-hour="' + v.hour + '"]').css("background-color", "#4CAF50");
+  });
+
+  $("#change_week").click(function(){
+    var date = $("#change_week_selection").val();
+    if(date){
+      window.location.href = "/timetable?date=" + date;
+    }else{
+      alert("Please specify a Date");
+    }
+  });
+
+  <% if current_user.admin? %>
+    $('.hour-block').click(function(){
+        var user = <%= current_user.id %>;
+        var day = $(this).data('day');
+        var hour = $(this).data('hour');
+
+        var method = "add";
+        if($(this).hasClass("booked")){
+          method = "remove";
+          $(this).css("background-color", "grey");
+        }else{
+          $(this).css("background-color", "#4CAF50");
+        }
+
+        $.post( "/working_hour/" + method + "/" + user + "/" + day + "/" + hour, function( data ) {
+          $( ".result" ).html( data );
+        });
+      });
+   <% end %>
+</script>

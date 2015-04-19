@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :friendify, use: :slugged
   has_many :vacation_requests
+  has_many :work_hours
 
   # necessary to override friendly_id reserved words
   def friendify

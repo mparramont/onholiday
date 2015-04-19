@@ -4,3 +4,10 @@
  *= require_self
  */
 @import "railsbricks_custom";
+
+
+.hour-block{
+  background-color: grey;
+  border: 1px solid black;
+  cursor: pointer;
+}
