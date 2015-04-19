@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Use friendly_id on Users
   extend FriendlyId
   friendly_id :friendify, use: :slugged
+  has_many :vacation_requests
 
   # necessary to override friendly_id reserved words
   def friendify
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
       "#{username}"
     end
   end
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
