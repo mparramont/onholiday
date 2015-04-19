@@ -53,3 +53,5 @@ end
 group :production do
   gem 'unicorn'
 end
+
+gem 'googlecharts', :git => 'https://github.com/mattetti/googlecharts'
