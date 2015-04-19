@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010133701) do
+ActiveRecord::Schema.define(version: 20150419211843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20141010133701) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthday"
+    t.string   "position"
+    t.string   "telephone_work"
+    t.string   "mobile_phone"
+    t.string   "telephone_home"
+    t.string   "marital_status"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -57,5 +65,22 @@ ActiveRecord::Schema.define(version: 20141010133701) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "vacation_requests", force: :cascade do |t|
+    t.date     "start"
+    t.date     "end"
+    t.string   "reason"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "work_hours", force: :cascade do |t|
+    t.integer  "user_id"
+    t.date     "day"
+    t.integer  "hour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

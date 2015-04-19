@@ -1,0 +1,32 @@
+<div class="row">
+
+  <%= form_for(@new_vacation_request, url: vacation_request_path) do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="form-group">
+      <h4>Request Annual Leave:</h4>
+      <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <%= f.label :start %><br>
+        <%= f.date_field :start, class: "form-control" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.label :end %>
+        <%= f.date_field :end, class: "form-control" %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.label :reason %>
+        <%= f.text_field :reason, class: "form-control", placeholder: "Optional" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= f.submit "Request", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <% end %>
+</div>

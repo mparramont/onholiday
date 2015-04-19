@@ -5,8 +5,7 @@ development:
   adapter: postgresql
   encoding: utf8
   database: onholiday_development
-  username: mparramon
+  username: 
   host: localhost
   pool: 5
   port: 5432
-  
