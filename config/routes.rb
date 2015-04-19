@@ -4,14 +4,17 @@ Onholiday::Application.routes.draw do
   get "inside", to: "pages#inside", as: "inside"
   get "/contact", to: "pages#contact", as: "contact"
   post "/emailconfirmation", to: "pages#email", as: "email_confirmation"
-  
-  
+
+  resource :vacation_request
+  get "annual_leaves", to: "vacation_requests#index", as: "vacation_requests"
+
+
   devise_for :users
 
   namespace :admin do
     root "base#index"
     resources :users
-    
+
   end
 
 end

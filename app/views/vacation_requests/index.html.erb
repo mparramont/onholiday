@@ -1,0 +1,8 @@
+<% unless current_user.admin? %>
+  <%= render  "form" %>
+<% end %>
+
+
+<div class="row">
+<%= render "index" %>
+</div>
