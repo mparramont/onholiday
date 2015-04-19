@@ -20,12 +20,11 @@ u = User.new(
     first_name: "Kay",
     last_name: "Blair",
     birthday: Date.today - 30.years,
-    degree: "College",
     position: "Accountant",
     telephone_home: "30932094/3432",
-    telephone_mobil: "28304/2354",
+    mobile_phone: "28304/2354",
     telephone_work: "9893/23432",
-    martial_status: "single"
+    marital_status: "single"
 )
 u.skip_confirmation!
 u.save!

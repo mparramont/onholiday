@@ -17,12 +17,11 @@ class ApplicationController < ActionController::Base
       :first_name,
       :last_name,
       :birthday,
-      :degree,
       :position,
       :telephone_home,
-      :telephone_mobil,
+      :mobile_phone,
       :telephone_work,
-      :martial_status)
+      :marital_status)
     }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
       :username,
@@ -33,12 +32,11 @@ class ApplicationController < ActionController::Base
       :first_name,
       :last_name,
       :birthday,
-      :degree,
       :position,
       :telephone_home,
-      :telephone_mobil,
+      :mobile_phone,
       :telephone_work,
-      :martial_status
+      :marital_status
       )
     }
   end

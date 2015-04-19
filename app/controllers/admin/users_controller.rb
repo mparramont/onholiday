@@ -66,12 +66,11 @@ class Admin::UsersController < Admin::BaseController
     :first_name,
     :last_name,
     :birthday,
-    :degree,
     :position,
     :telephone_home,
-    :telephone_mobil,
+    :mobile_phone,
     :telephone_work,
-    :martial_status
+    :marital_status
     )
   end
 
