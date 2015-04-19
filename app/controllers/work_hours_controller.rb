@@ -4,7 +4,7 @@ class WorkHoursController < ApplicationController
   before_action :define_timetable_day, only: :index
 
   def index
-    @work_hours = @timetable_user.work_hours.where(day: @day.beginning_of_week..@day.end_of_week)
+    @work_hours = @timetable_user.work_hours.where("day between ? and ?",  @day.beginning_of_week, @day.end_of_week)
     @work_hours = @work_hours.to_json(only: [:hour, :day])
   end
 
