@@ -14,14 +14,14 @@ class ApplicationController < ActionController::Base
       :email,
       :password,
       :password_confirmation,
-      :first_name
-      :last_name
-      :birthday
-      :degree
-      :position
-      :telephone_home
-      :telephone_mobil
-      :telephone_work
+      :first_name,
+      :last_name,
+      :birthday,
+      :degree,
+      :position,
+      :telephone_home,
+      :telephone_mobil,
+      :telephone_work,
       :martial_status)
     }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
@@ -30,14 +30,14 @@ class ApplicationController < ActionController::Base
       :password,
       :password_confirmation,
       :current_password,
-      :first_name
-      :last_name
-      :birthday
-      :degree
-      :position
-      :telephone_home
-      :telephone_mobil
-      :telephone_work
+      :first_name,
+      :last_name,
+      :birthday,
+      :degree,
+      :position,
+      :telephone_home,
+      :telephone_mobil,
+      :telephone_work,
       :martial_status
       )
     }
