@@ -7,8 +7,6 @@ class PagesController < ApplicationController
   end
 
   def inside
-    @new_vacation_request =  current_user.vacation_requests.new
-    @vacation_requests = current_user.vacation_requests
   end
 
 
@@ -29,7 +27,7 @@ class PagesController < ApplicationController
     elsif @message.scan(/<a href=/).size > 0 || @message.scan(/\[url=/).size > 0 || @message.scan(/\[link=/).size > 0 || @message.scan(/http:\/\//).size > 0
       flash[:alert] = "You can't send links. Thank you for your understanding."
       render :contact
-    else    
+    else
       ContactMailer.contact_message(@name,@email,@message).deliver_now
       redirect_to root_path, notice: "Your message was sent. Thank you."
     end
