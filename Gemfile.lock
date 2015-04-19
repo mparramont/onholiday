@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/mattetti/googlecharts
+  revision: 22d2636c57c799644e2bba944d26dc767498a145
+  specs:
+    googlecharts (1.6.10)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -187,6 +193,7 @@ DEPENDENCIES
   figaro (= 1.1.0)
   font-awesome-sass (= 4.3.2.1)
   friendly_id (= 5.1.0)
+  googlecharts!
   jbuilder (= 2.2.12)
   jquery-rails (= 4.0.3)
   kaminari (= 0.16.3)

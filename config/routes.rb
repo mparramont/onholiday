@@ -10,6 +10,7 @@ Onholiday::Application.routes.draw do
 
 
   get "/timetable", to: "work_hours#index", as: "timetable"
+  get "/stats", to: "statistics#index", as: "stats"
 
   post "/working_hour/add/:user_id/:day/:hour", to: "work_hours#add"
   post "/working_hour/remove/:user_id/:day/:hour", to: "work_hours#remove"
