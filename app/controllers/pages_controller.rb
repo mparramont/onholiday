@@ -7,14 +7,16 @@ class PagesController < ApplicationController
   end
 
   def inside
+    @new_vacation_request =  current_user.vacation_requests.new
+    @vacation_requests = current_user.vacation_requests
   end
-  
-  
+
+
   def email
     @name = params[:name]
     @email = params[:email]
     @message = params[:message]
-    
+
     if @name.blank?
       flash[:alert] = "Please enter your name before sending your message. Thank you."
       render :contact
