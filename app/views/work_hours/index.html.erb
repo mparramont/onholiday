@@ -1,4 +1,10 @@
-<h4>Timetable for <%= @day.beginning_of_week %> till <%= @day.end_of_week %></h4>
+<% date_range = "#{@day.beginning_of_week} till #{@day.end_of_week}" %>
+
+<% if current_user.admin? %>
+  <h4>Timetable for <%= date_range %></h4>
+<% else %>
+  <h4> Your Timetable for <%= date_range %></h4>
+<% end %>
 
 <%= render "form" %>
 
@@ -30,7 +36,7 @@
 
 <script>
   $.each(<%= raw @work_hours %>, function(i,v){
-    $('div[data-day="' + v.day + '"][data-hour="' + v.hour + '"]').css("background-color", "#4CAF50");
+    $('div[data-day="' + v["day"] + '"][data-hour="' + v["hour"] + '"]').css("background-color", "#4CAF50");
   });
 
   $("#change_week").click(function(){
