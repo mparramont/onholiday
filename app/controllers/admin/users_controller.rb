@@ -62,7 +62,16 @@ class Admin::UsersController < Admin::BaseController
     :password,
     :password_confirmation,
     :admin,
-    :locked
+    :locked,
+    :first_name
+    :last_name
+    :birthday
+    :degree
+    :position
+    :telephone_home
+    :telephone_mobil
+    :telephone_work
+    :martial_status
     )
   end
 
