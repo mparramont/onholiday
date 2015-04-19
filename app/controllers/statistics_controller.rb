@@ -5,11 +5,7 @@ class StatisticsController < ApplicationController
   def index
     days_worked =  current_user.work_hours.group(:day).count.count
     vacations = current_user.vacation_requests.all
-    suma = 0
-    vacations.each do |v|
-      suma = suma + (v[:end] - v[:start])
-    end
-    days_off = suma.to_i
+    days_off = vacations.inject(0){|sum,v| sum += (v[:end] - v[:start]) }
 
     @chart = Gchart.pie(:size => '400x300',
                 :title_color => 'FF0000',
